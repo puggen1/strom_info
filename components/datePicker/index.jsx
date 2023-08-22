@@ -1,10 +1,15 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import DateTimePicker from '@react-native-community/datetimepicker';
 
-const DatePicker = () => {
+
+const DatePicker = ({value, onChangeFunction}) => {
+  const maximumDate = new Date()
+  maximumDate.setDate(maximumDate.getDate() + 1)
+
+
   return (
     <View>
-      <Text>DatePicker</Text>
+      <DateTimePicker maximumDate={maximumDate}  value={value} mode='date' display='calendar' onChange={onChangeFunction}/>
     </View>
   )
 }

@@ -1,9 +1,19 @@
 import { View, Text, Pressable } from 'react-native';
+import { useState } from 'react';
 import buttons from "../../assets/style/buttons";
 import textStyle from '../../assets/style/text';
-const Button = ({text, type}) => {
+const Button = ({text, type="main"}) => {
+  const [pressed, setPressed] = useState(false);
+  const togglePressed = () => {
+    setPressed(!pressed);
+  }
+  if(type === "main"){
+    return (
+      <Pressable onPressIn={togglePressed} onPressOut={togglePressed} style={[buttons.global, buttons.main, pressed && buttons.main.pressed]}><Text style={[textStyle.button.default, pressed && textStyle.button.outlined]}>{text}</Text></Pressable>
+    )
+  }
   return (
-    <Pressable style={ type === "main" ? buttons.main : buttons.outlined}><Text style={type === "main" ? textStyle.button.default : textStyle.button.outlined}>{text}</Text></Pressable>
+    <Pressable onPressIn={togglePressed} onPressOut={togglePressed} style={[buttons.global, buttons.outlined]}><Text style={[textStyle.button.outlined]}>{text}</Text></Pressable>
   )
 }
 

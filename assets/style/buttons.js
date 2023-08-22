@@ -1,19 +1,25 @@
 import { StyleSheet } from "react-native";
 import colors from "./colors";
 const buttons = StyleSheet.create({
-  main: {
+  global: {
     borderRadius: 25,
-    backgroundColor: colors.secondary,
-    padding: 5,
+    padding: 6,
     margin: 5,
+    minWidth: 100,
+  },
+  main: {
+    backgroundColor: colors.secondary,
+    borderWidth: 2,
+    borderColor: colors.secondary,
+    pressed: {
+      backgroundColor: colors.white,
+      borderColor: colors.secondary,
+    },
   },
   outlined: {
-    borderRadius: 25,
     backgroundColor: colors.white,
     borderColor: colors.secondary,
     borderWidth: 2,
-    padding: 5,
-    margin: 5,
   },
 });
 
