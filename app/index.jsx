@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 import DatePicker from "../components/datePicker";
 
 import { useFonts } from "expo-font";
@@ -7,14 +7,15 @@ import layout from "../assets/style/layout";
 import { useState } from "react";
 const Test = () => {
   const [date, setDate] = useState(new Date());
-  
   const handleDatePicker = (event, selectedDate) => {
+    console.log(event.target)
     const {type} = event;
     if(type === 'dismissed'){
       return
     }
     if(type === 'set'){
-      setDate(selectedDate)
+      const currentDate = selectedDate;
+      setDate(currentDate)
   }
   }
   const [loaded] = useFonts({
