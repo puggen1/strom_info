@@ -5,7 +5,13 @@ import { useFonts } from "expo-font";
 import text from "../assets/style/text";
 import layout from "../assets/style/layout";
 import { useState } from "react";
+import { baseUrl } from "../utils/constants";
+import useFetch from "../hooks/useFetch";
+import useDayGetter from "../hooks/useDayGetter";
 const Test = () => {
+  const {getToday, getTomorrow} = useDayGetter()
+  console.log(getToday())
+  console.log(getTomorrow())
   const [date, setDate] = useState(new Date());
   const handleDatePicker = (event, selectedDate) => {
     console.log(event.target)
