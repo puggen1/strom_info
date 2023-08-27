@@ -3,18 +3,18 @@ const useDayGetter = () => {
   const getTomorrow = () => {
     return (
       dateNow.getFullYear().toString() +
-      "-" +
+      "/" +
       dateNow.getMonth().toString() +
-      "-" +
+      "/" +
       (dateNow.getDate() + 1).toString()
     );
   };
   const getToday = () => {
     return (
       dateNow.getFullYear().toString() +
-      "-" +
+      "/" +
       dateNow.getMonth().toString() +
-      "-" +
+      "/" +
       dateNow.getDate().toString()
     );
   };
