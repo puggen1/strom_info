@@ -1,6 +1,6 @@
 import { Button, Text, View } from "react-native";
 import DatePicker from "../components/datePicker";
-
+import AreaSelect from "../components/areaSelect";
 import { useFonts } from "expo-font";
 import text from "../assets/style/text";
 import layout from "../assets/style/layout";
@@ -13,6 +13,7 @@ const Test = () => {
   console.log(getToday())
   console.log(getTomorrow())
   const [date, setDate] = useState(new Date());
+  const [area, setArea] = useState()
   const handleDatePicker = (event, selectedDate) => {
     console.log(event.target)
     const {type} = event;
@@ -39,6 +40,7 @@ const Test = () => {
     <View >
         <Text style={[text.header, layout.extraMargin, layout.extraPadding]}>Strøm info</Text>
         <DatePicker value={date} onChangeFunction={handleDatePicker}/>
+        <AreaSelect value={area} setValue={setArea}/>
     </View>
   )
 }
