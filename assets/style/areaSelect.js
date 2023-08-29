@@ -33,7 +33,13 @@ const areaSelect = StyleSheet.create({
       backgroundColor: colors.secondary,
       borderColor: colors.primary,
     },
-    checkBoxLabelStyle: {},
+    checkboxLabelStyle: {
+      color: colors.primary,
+      fontSize: 16,
+    },
+  },
+  checkBoxStyle: {
+    padding: 7,
   },
 });
 
