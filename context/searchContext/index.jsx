@@ -6,9 +6,9 @@ const SearchContext = createContext()
 const Search = ({children}) => {
   const [date, setDate] = useState(new Date());
   const [area, setArea] = useState()
-  const [url, setUrl] = useState(baseUrl)
-  const {data, error, loading} = useFetch(url)
-    const searchFunction = () => {
+  const [url, setUrl] = useState()
+  const {data, isError, isLoading, trigger} = useFetch(url)
+    const searchFunction = async () => {
       if(!area || !date){
         return
       }
@@ -17,11 +17,10 @@ const Search = ({children}) => {
       const day = date.getDate().toLocaleString('no-NO', {minimumIntegerDigits: 2})
       const formattedDate = `${year}/${month}-${day}`
       const newUrl = `${baseUrl}${formattedDate}_${area}.json`
-      console.log(newUrl)
       setUrl(newUrl)
     }
   return (
-    <SearchContext.Provider value={{date, setDate, area, setArea, data, error, loading, searchFunction}}>
+    <SearchContext.Provider value={{date, setDate, area, setArea, data, isError, isLoading, searchFunction}}>
       {children}
     </SearchContext.Provider>
   )

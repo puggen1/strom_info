@@ -3,15 +3,14 @@ const useFetch = (url) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const auth = "test123321";
   const options = {
     method: "GET",
     headers: {
-      Authorization: auth,
       "Content-Type": "application/json",
     },
   };
   const fetcher = async () => {
+    if (!url) return;
     try {
       setIsLoading(true);
       setIsError(false);
@@ -30,7 +29,7 @@ const useFetch = (url) => {
     fetcher(url);
   }, [url]);
 
-  return { data, isLoading, isError };
+  return { data, isLoading, isError, trigger: fetcher };
 };
 
 export default useFetch;

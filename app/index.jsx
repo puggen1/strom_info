@@ -1,6 +1,8 @@
 import { useFonts } from "expo-font";
 import Search from "../context/searchContext";
-import SearchSection from "../components/searchSection";
+import Main from "../components/main";
+
+
 const Test = () => {
   
   const [loaded] = useFonts({
@@ -16,7 +18,9 @@ const Test = () => {
   if(!loaded) return null;
   return (
     <Search>
-      <SearchSection />
+      {/** header */}
+      <Main/>
+      {/** footer */}
     </Search>
   )
 }

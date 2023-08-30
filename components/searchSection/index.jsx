@@ -19,7 +19,6 @@ export default function SearchSection() {
         setDate(currentDate)
     }
     }
-   console.log(data)
   return (
     <View>
           <Text style={[text.header, layout.extraMargin, layout.extraPadding]}>Strøm info</Text>
