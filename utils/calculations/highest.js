@@ -5,6 +5,5 @@ export const topHour = (data) => {
       highestHour = hour;
     }
   });
-  console.log(highestHour);
   return highestHour;
 };
