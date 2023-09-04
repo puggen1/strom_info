@@ -6,6 +6,8 @@ import { useEffect, useContext } from "react";
 import {SearchContext} from "../context/searchContext/index"
 import mvaCalc from "../utils/calculations/mvaCalc"
 import addFee from "../utils/calculations/addFee";
+import numberFormater from "../utils/numberFormater";
+
 const useCalculateStatistic = (data) => {
   const {area} = useContext(SearchContext)
   const [highest, setHighest] = useState();
@@ -23,7 +25,7 @@ const useCalculateStatistic = (data) => {
     //the lowest our
     setLowest(lowestHour(fidexData));
     //average
-    setAverage(averageHour(fidexData));
+    setAverage(numberFormater(averageHour(fidexData)));
   }, [data]);
   return { highest, lowest, average };
 };

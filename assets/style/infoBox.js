@@ -9,6 +9,8 @@ const infoBox = StyleSheet.create({
     alignItems: "center",
     minHeight: 150,
     margin: 5,
+    marginBottom:10,
+    marginTop:10
   },
 });
 
