@@ -14,7 +14,8 @@ const layout = StyleSheet.create({
   },
   container: { flex: 1 },
   extraPadding: { padding: 15 },
-  extraMargin: { small:{
+  extraMargin: { 
+    small:{
     margin: 10
   },
   medium:{

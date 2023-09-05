@@ -4,6 +4,7 @@ import { SearchContext } from '../../context/searchContext'
 import useCalculateStatistic from '../../hooks/useCalculateStatistic'
 import InfoBox from '../infoBox'
 import { timePeriod } from '../../utils/timePeriod/timePeriod'
+import numberFormater from '../../utils/numberFormater'
 const ResultSection = () => {
     const {data, isLoading, isError} = useContext(SearchContext)
     const {highest,lowest,average} = useCalculateStatistic(data, isLoading)
@@ -14,9 +15,9 @@ const ResultSection = () => {
         {isError && <Text>Error...</Text>}
         {(data.length === 24 && (highest, lowest, average)) && 
         <>
-        <InfoBox header={"Høyeste"} subheader={highest.newPrice} additionalText={timePeriod(highest.time_start, highest.time_end)}/>
+        <InfoBox header={"Høyeste"} subheader={numberFormater(highest.newPrice)} additionalText={timePeriod(highest.time_start, highest.time_end)}/>
         <InfoBox header={"Snitt"} subheader={average} />
-        <InfoBox header={"Laveste"} subheader={lowest.newPrice} additionalText={timePeriod(lowest.time_start, lowest.time_end)}/>
+        <InfoBox header={"Laveste"} subheader={numberFormater(lowest.newPrice)} additionalText={timePeriod(lowest.time_start, lowest.time_end)}/>
         </>
         }
     </View>

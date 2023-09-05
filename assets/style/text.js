@@ -4,20 +4,20 @@ const text = StyleSheet.create({
   header: {
     fontSize: 32,
     fontWeight: "light",
-    fontFamily: "quicksand",
+    fontFamily: "Quicksand-Light",
     textAlign: "center",
     color: colors.primary,
   },
   subheader: {
     fontSize: 24,
     fontWeight: "light",
-    fontFamily: "quicksand",
+    fontFamily: "Quicksand-Light",
     color: colors.primary,
   },
   copy: {
     fontSize: 18,
-    fontWeight: "extra-light",
-    fontFamily: "roboto",
+    fontWeight: "ultralight",
+    fontFamily: "Roboto-Light",
   },
   button: {
     default: {
@@ -25,14 +25,14 @@ const text = StyleSheet.create({
       textAlign: "center",
       fontSize: 20,
       fontWeight: "regular",
-      fontFamily: "roboto",
+      fontFamily: "Roboto-Regular",
     },
     outlined: {
       color: colors.secondary,
       textAlign: "center",
       fontSize: 20,
       fontWeight: "regular",
-      fontFamily: "roboto",
+      fontFamily: "Roboto-Regular",
     },
   },
   infoBox: {

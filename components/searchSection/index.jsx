@@ -21,7 +21,7 @@ export default function SearchSection() {
     }
   return (
     <View>
-          <Text style={[text.header, layout.extraMargin, layout.extraPadding]}>Strøm info</Text>
+          <Text style={[text.header, layout.extraMargin.small, layout.extraPadding]}>Strøm info</Text>
           <DatePicker value={date} onChangeFunction={handleDatePicker}/>
           <AreaSelect value={area} setValue={setArea}/>
           <Button type="main" text={"Sjekk Prisen"} event={searchFunction}/>
