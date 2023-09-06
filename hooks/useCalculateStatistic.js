@@ -3,21 +3,21 @@ import { topHour } from "../utils/calculations/highest";
 import { lowestHour } from "../utils/calculations/lowest";
 import { averageHour } from "../utils/calculations/average";
 import { useEffect, useContext } from "react";
-import {SearchContext} from "../context/searchContext/index"
-import mvaCalc from "../utils/calculations/mvaCalc"
+import { SearchContext } from "../context/searchContext/index";
+import mvaCalc from "../utils/calculations/mvaCalc";
 import addFee from "../utils/calculations/addFee";
 import numberFormater from "../utils/numberFormater";
 
 const useCalculateStatistic = (data) => {
-  const {area} = useContext(SearchContext)
+  const { area } = useContext(SearchContext);
   const [highest, setHighest] = useState();
   const [lowest, setLowest] = useState();
   const [average, setAverage] = useState();
   useEffect(() => {
     //fixes price
-    let fidexData = data
-    if(area != "NO4"){
-       fidexData = mvaCalc(data)
+    let fidexData = data;
+    if (area != "NO4") {
+      fidexData = mvaCalc(data);
     }
     fidexData = addFee(fidexData);
     //the highest hour

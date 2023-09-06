@@ -7,7 +7,7 @@ const InfoBox = ({header, subheader, icon, additionalText=""}) => {
     <View style={[layout.extraMargin.vertical]}>
     <View style={[infoBoxStyles.main,]}>
       <Text  style={text.infoBox.header}>{header} {icon ? icon : ""}</Text>
-      <Text style={text.infoBox.subheader}>{subheader}</Text>
+      <Text style={text.infoBox.subheader}>{subheader} kr pr kWt</Text>
     </View>
     <Text style={[text.subheader,layout.centered]}>{additionalText}</Text>
     </View>

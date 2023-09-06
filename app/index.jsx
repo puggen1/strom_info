@@ -3,6 +3,9 @@ import Main from "../components/main";
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from "react";
+import text from '../assets/style/text'
+import layout from '../assets/style/layout'
+import { Text } from "react-native";
 SplashScreen.preventAutoHideAsync();
 
 const Test = () => {
@@ -28,6 +31,9 @@ const Test = () => {
   return (
     <Search onLayout={onLayoutRootView}>
       {/** header */}
+
+<Text style={[text.header, layout.extraMargin.small, layout.extraPadding]}>Strøm info</Text>
+
       <Main/>
       {/** footer */}
     </Search>
