@@ -1,4 +1,5 @@
 import Search from "../context/searchContext";
+import Currency from "../context/currencyFormattContext";
 import Main from "../components/main";
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
@@ -30,12 +31,13 @@ const Test = () => {
     }
   return (
     <Search onLayout={onLayoutRootView}>
+      <Currency>
       {/** header */}
-
 <Text style={[text.header, layout.extraMargin.small, layout.extraPadding]}>Strøm info</Text>
 
       <Main/>
       {/** footer */}
+      </Currency>
     </Search>
   )
 }

@@ -1,32 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { topHour } from "../utils/calculations/highest";
 import { lowestHour } from "../utils/calculations/lowest";
 import { averageHour } from "../utils/calculations/average";
-import { useEffect, useContext } from "react";
+
 import { SearchContext } from "../context/searchContext/index";
 import mvaCalc from "../utils/calculations/mvaCalc";
 import addFee from "../utils/calculations/addFee";
 import numberFormater from "../utils/numberFormater";
-
+import { CurrencyFormatterContext } from "../context/currencyFormattContext";
 const useCalculateStatistic = (data) => {
+  const { currencyFormat, changeCurrency } = useContext(
+    CurrencyFormatterContext
+  );
   const { area } = useContext(SearchContext);
   const [highest, setHighest] = useState();
   const [lowest, setLowest] = useState();
   const [average, setAverage] = useState();
   useEffect(() => {
     //fixes price
-    let fidexData = data;
+    let fixedData = data;
     if (area != "NO4") {
-      fidexData = mvaCalc(data);
+      fixedData = mvaCalc(data);
     }
-    fidexData = addFee(fidexData);
+
+    fixedData = addFee(fixedData);
     //the highest hour
-    setHighest(topHour(fidexData));
+    let highestHourTemp = topHour(fixedData);
+    let lowestHourTemp = lowestHour(fixedData);
+    let averageHourTemp = averageHour(fixedData);
+    const {
+      average: newAverage,
+      highest: newHighest,
+      lowest: newLowest,
+    } = changeCurrency(averageHourTemp, highestHourTemp, lowestHourTemp);
+    setHighest(newHighest);
     //the lowest our
-    setLowest(lowestHour(fidexData));
+    setLowest(newLowest);
     //average
-    setAverage(numberFormater(averageHour(fidexData)));
-  }, [data]);
+    setAverage(numberFormater(newAverage, currencyFormat));
+  }, [data, currencyFormat]);
   return { highest, lowest, average };
 };
 
