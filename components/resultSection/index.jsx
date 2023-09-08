@@ -28,7 +28,7 @@ const ResultSection = () => {
     <View>
         {isLoading && <Text>Loading...</Text>}
         {isError && <Text>Error...</Text>}
-        {(data.length === 24 && (highest, lowest, average)) &&
+        {(data.length === 24 && (highest, lowest, average, !isError, !isLoading)) &&
         <>
         <View style={[layout.centered, {flexDirection:"row"}]}>
         <Text style={[text.subheader]}>Viser data for</Text>

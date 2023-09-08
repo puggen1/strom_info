@@ -3,6 +3,6 @@ const numberFormater = (number, id) => {
     return number.toFixed(3);
   }
 
-  return number.toFixed(0);
+  return (number * 10).toFixed(0);
 };
 export default numberFormater;

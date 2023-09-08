@@ -7,6 +7,7 @@ import { useCallback } from "react";
 import text from '../assets/style/text'
 import layout from '../assets/style/layout'
 import { Text } from "react-native";
+import { ScrollView } from "react-native";
 SplashScreen.preventAutoHideAsync();
 
 const Test = () => {
@@ -32,11 +33,13 @@ const Test = () => {
   return (
     <Search onLayout={onLayoutRootView}>
       <Currency>
+        <ScrollView horizontal={false}>
       {/** header */}
 <Text style={[text.header, layout.extraMargin.small, layout.extraPadding]}>Strøm info</Text>
 
       <Main/>
       {/** footer */}
+      </ScrollView>
       </Currency>
     </Search>
   )
