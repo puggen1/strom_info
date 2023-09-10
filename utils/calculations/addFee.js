@@ -1,15 +1,17 @@
 import { extraCost } from "../constants";
 
 const addFee = (data) => {
-  return data.map((hour) => {
-    if (hour.newPrice || hour.newPrice === 0) {
-      hour.newPrice += extraCost;
+  const newData = data.map((hour) => {
+    const modifyableHour = {...hour}
+    if (modifyableHour.newPrice || modifyableHour.newPrice === 0) {
+      modifyableHour.newPrice += extraCost;
     } else {
-      hour.NOK_per_kWh += extraCost;
+      modifyableHour.NOK_per_kWh += extraCost;
 
     }
-    return hour;
+    return modifyableHour;
   });
+  return newData
 };
 
 export default addFee;
