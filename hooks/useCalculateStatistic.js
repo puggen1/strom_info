@@ -12,11 +12,14 @@ const useCalculateStatistic = (data) => {
   const { currencyFormat, changeCurrency } = useContext(
     CurrencyFormatterContext
   );
-  const { area } = useContext(SearchContext);
+  const { area, isLoading } = useContext(SearchContext);
   const [highest, setHighest] = useState();
   const [lowest, setLowest] = useState();
   const [average, setAverage] = useState();
   useEffect(() => {
+    if (isLoading && Object.keys(data).length === 0) {
+      return;
+    }
     //fixes price
     let fixedData = data;
     if (area != "NO4") {
@@ -38,8 +41,12 @@ const useCalculateStatistic = (data) => {
     setLowest(newLowest);
     //average
     setAverage(numberFormater(newAverage, currencyFormat));
-  }, [data, currencyFormat]);
+  }, [data, currencyFormat, area, isLoading]);
   return { highest, lowest, average };
 };
 
 export default useCalculateStatistic;
+
+/*
+
+  */

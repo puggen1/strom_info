@@ -28,8 +28,11 @@ const useFetch = (url) => {
   useEffect(() => {
     fetcher(url);
   }, [url]);
-
-  return { data, isLoading, isError, trigger: fetcher };
+  const resetter = () => {
+    setData({});
+    setIsError(false);
+  };
+  return { data, isLoading, isError, trigger: fetcher, resetter };
 };
 
 export default useFetch;

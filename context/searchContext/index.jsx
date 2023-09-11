@@ -1,8 +1,8 @@
 import { createContext, useEffect, useState } from 'react'
 import useFetch from '../../hooks/useFetch'
 import { baseUrl } from '../../utils/constants'
+import { router } from 'expo-router'
 const SearchContext = createContext()
-
 const Search = ({children}) => {
   const [date, setDate] = useState(new Date());
   const [area, setArea] = useState()
@@ -18,6 +18,7 @@ const Search = ({children}) => {
       const formattedDate = `${year}/${month}-${day}`
       const newUrl = `${baseUrl}${formattedDate}_${area}.json`
       setUrl(newUrl)
+      router.replace("/result")
     }
   return (
     <SearchContext.Provider value={{date, setDate, area, setArea, data, isError, isLoading, searchFunction}}>
