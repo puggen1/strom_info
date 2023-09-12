@@ -24,7 +24,7 @@ const Result = () => {
       searchFunction()
     },[date])
   return (
-    <View>
+   <View>
         {isLoading && <Text>Loading...</Text>}
         {isError && <Text>Error...</Text>}
         {((Object.keys(data).length === 24) &&highest, lowest, average, !isError, !isLoading)&&
