@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 const useFetch = (url) => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const options = {
@@ -29,8 +29,9 @@ const useFetch = (url) => {
     fetcher(url);
   }, [url]);
   const resetter = () => {
-    setData({});
+    setData([]);
     setIsError(false);
+    setIsLoading(true)
   };
   return { data, isLoading, isError, trigger: fetcher, resetter };
 };

@@ -2,12 +2,13 @@ import { Link, Slot } from "expo-router";
 import text from "../assets/style/text";
 import layout from "../assets/style/layout";
 import { useCallback } from "react";
-import { Text } from "react-native";
+import { Text, SafeAreaView } from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Search from "../context/searchContext";
 import Currency from "../context/currencyFormattContext";
 import { ScrollView } from "react-native";
+import ActionBar from "../components/actionBar";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -35,6 +36,7 @@ const HomeLayout = () => {
   return (
     <Search onLayout={onLayoutRootView}>
       <Currency>
+        <SafeAreaView style={{flex:1}}>
         <ScrollView horizontal={false}>
           <Text
             style={[text.header, layout.extraMargin.small, layout.extraPadding]}
@@ -43,6 +45,8 @@ const HomeLayout = () => {
           </Text>
           <Slot />
         </ScrollView>
+        </SafeAreaView>
+        <ActionBar/>
       </Currency>
     </Search>
   );

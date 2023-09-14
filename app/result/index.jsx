@@ -15,7 +15,7 @@ import useHandleDatePicker from '../../hooks/useHandleDatePicker'
 import RadioButtonsGroup from 'react-native-radio-buttons-group'
 import { CurrencyFormatterContext } from '../../context/currencyFormattContext'
 const Result = () => {
-    const {date, data, isLoading, isError, searchFunction} = useContext(SearchContext)
+    const {date, data, isLoading, isError, searchFunction, resetter} = useContext(SearchContext)
     const {currencyFormat, setCurrencyFormat, radioButtons} = useContext(CurrencyFormatterContext)
     const {highest,lowest,average} = useCalculateStatistic(data)
     const {handleDate} = useHandleDatePicker()
@@ -23,11 +23,12 @@ const Result = () => {
     useEffect(()=>{
       searchFunction()
     },[date])
+    console.log(Boolean(highest, lowest, average, !isError, !isError))
   return (
    <View>
         {isLoading && <Text>Loading...</Text>}
         {isError && <Text>Error...</Text>}
-        {((Object.keys(data).length === 24) &&highest, lowest, average, !isError, !isLoading)&&
+        {((Object.keys(data).length === 24) && (highest, lowest, average, !isError, !isLoading, highest?.newPrice) ) &&
         <>
         <View style={[layout.centered, {flexDirection:"row"}]}>
         <Text style={[text.subheader]}>Viser data for</Text>

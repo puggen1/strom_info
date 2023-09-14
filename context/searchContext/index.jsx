@@ -10,7 +10,7 @@ const Search = ({children}) => {
   const [date, setDate] = useState(new Date());
   const [area, setArea] = useState()
   const [url, setUrl] = useState()
-  const {data, isError, isLoading, trigger} = useFetch(url)
+  const {data, isError, isLoading, trigger, resetter} = useFetch(url)
     const searchFunction = async () => {
       if(!area || !date){
         return
@@ -25,7 +25,7 @@ const Search = ({children}) => {
       router.replace("/result")}
     }
   return (
-    <SearchContext.Provider value={{date, setDate, area, setArea, data, isError, isLoading, searchFunction}}>
+    <SearchContext.Provider value={{date, setDate, area, setArea, data, isError, isLoading, searchFunction, resetter}}>
       {children}
     </SearchContext.Provider>
   )
