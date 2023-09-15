@@ -3,11 +3,11 @@ import colors from "./colors"
 const actionBar = StyleSheet.create({
     height:100,
     backgroundColor:colors.primary,
-    borderRadius:"35 35 0 0",
-   
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
     flexDirection:"row",
     justifyContent:"space-evenly",
-    alignItems: "center"
+    alignItems: "center",
 
 })  
 const actionBarItem = StyleSheet.create({
@@ -17,7 +17,7 @@ const actionBarItem = StyleSheet.create({
         borderRadius:30,
         alignContent:"center",
         alignItems:"center",
-        justifyContent:"center"
+        justifyContent:"center",
     },
     active:{
         backgroundColor:colors.white,
