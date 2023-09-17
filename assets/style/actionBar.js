@@ -7,28 +7,37 @@ const actionBar = StyleSheet.create({
     borderTopRightRadius: 35,
     flexDirection:"row",
     justifyContent:"space-evenly",
-    alignItems: "center",
 
 })  
 const actionBarItem = StyleSheet.create({
     default:{
         height:75,
         width:75,
-        borderRadius:30,
+        borderRadius:40,
         alignContent:"center",
         alignItems:"center",
         justifyContent:"center",
+        marginTop:25,
+    },
+    main:{
+    width:100,
+    height:100,
+
+    },
+    pressDown:{
+        backgroundColor:colors.secondary
     },
     active:{
         backgroundColor:colors.white,
         height:75,
         width:75,
-        borderRadius:30,
+        borderRadius:40,
         alignContent:"center",
         alignItems:"center",
         justifyContent:"center"
 
-    }
+    },
+    mainActive:{}
 })
 const actionBarIcons = StyleSheet.create({
 
