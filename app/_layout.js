@@ -9,6 +9,7 @@ import Search from "../context/searchContext";
 import Currency from "../context/currencyFormattContext";
 import { ScrollView } from "react-native";
 import ActionBar from "../components/actionBar";
+import PageController from "../context/pageContext";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -34,6 +35,7 @@ const HomeLayout = () => {
     return null;
   }
   return (
+    <PageController>
     <Search onLayout={onLayoutRootView}>
       <Currency>
         <SafeAreaView style={{flex:1, }}>
@@ -49,6 +51,7 @@ const HomeLayout = () => {
         <ActionBar/>
       </Currency>
     </Search>
+    </PageController>
   );
 };
 
