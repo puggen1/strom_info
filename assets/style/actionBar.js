@@ -17,15 +17,27 @@ const actionBarItem = StyleSheet.create({
         alignContent:"center",
         alignItems:"center",
         justifyContent:"center",
-        marginTop:25,
+        marginTop:12,
     },
     main:{
-    width:100,
-    height:100,
-
-    },
+    height:75,
+    width:75,
+    borderRadius:40,
+    alignItems:"center",
+    justifyContent:"center",
+    backgroundColor:colors.primary,
+    position:"relative",
+    top:-30,
+    elevation:8,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.3,
+    shadowRadius: 1, 
+},
     pressDown:{
-        backgroundColor:colors.secondary
+        backgroundColor:colors.secondary,
+        marginTop:12,
+
     },
     active:{
         backgroundColor:colors.white,
@@ -37,7 +49,27 @@ const actionBarItem = StyleSheet.create({
         justifyContent:"center"
 
     },
-    mainActive:{}
+    mainActive:{
+        height:75,
+        width:75,
+        borderRadius:40,
+        alignItems:"center",
+        justifyContent:"center",
+        backgroundColor:colors.white,
+        borderColor:colors.primary,
+        borderWidth:2,
+        boxSizing: "'border-box'",
+        position:"relative",
+        top:-30,
+        elevation:8,
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.3,
+        shadowRadius: 1,
+    },
+    pressDownMain:{
+    backgroundColor:colors.secondary,
+    }
 })
 const actionBarIcons = StyleSheet.create({
 
