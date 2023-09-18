@@ -36,8 +36,8 @@ const HomeLayout = () => {
   return (
     <Search onLayout={onLayoutRootView}>
       <Currency>
-        <SafeAreaView style={{flex:1}}>
-        <ScrollView horizontal={false}>
+        <SafeAreaView style={{flex:1, }}>
+        <ScrollView horizontal={false} >
           <Text
             style={[text.header, layout.extraMargin.small, layout.extraPadding]}
           >

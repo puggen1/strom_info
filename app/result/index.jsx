@@ -25,7 +25,7 @@ const Result = () => {
     },[date])
     console.log(Boolean(highest, lowest, average, !isError, !isError))
   return (
-   <View>
+   <View style={{marginBottom:30}}>
         {isLoading && <Text>Loading...</Text>}
         {isError && <Text>Error...</Text>}
         {((Object.keys(data).length === 24) && (highest, lowest, average, !isError, !isLoading, highest?.newPrice) ) &&
