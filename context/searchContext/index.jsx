@@ -15,6 +15,8 @@ const Search = ({children}) => {
       if(!area || !date){
         return
       }
+      else{
+        console.log(area, date)
       const year = date.getFullYear()
       const month = (date.getMonth() + 1).toLocaleString('no-NO', {minimumIntegerDigits: 2})
       const day = date.getDate().toLocaleString('no-NO', {minimumIntegerDigits: 2})
@@ -24,8 +26,9 @@ const Search = ({children}) => {
       if(navigation.getCurrentRoute().name !== "result/index"){
       router.replace("/result")}
     }
+    }
   return (
-    <SearchContext.Provider value={{date, setDate, area, setArea, data, isError, isLoading, searchFunction, resetter}}>
+    <SearchContext.Provider value={{date, setDate, area, setArea, data, isError, isLoading, searchFunction, resetter, setUrl}}>
       {children}
     </SearchContext.Provider>
   )

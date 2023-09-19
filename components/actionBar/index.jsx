@@ -7,10 +7,9 @@ import { faHouse, faSearch, faGear } from '@fortawesome/free-solid-svg-icons'
 import colors from '../../assets/style/colors'
 import ActionBarButton from '../actionBarButton'
 const ActionBar = ({}) => {
-  const {currentPage, setCurrentPage, pages} = useContext(PageContext)
+  const {changePage, currentPage} = useContext(PageContext)
   const onPressFunction = (e, id)=>{
-    setCurrentPage(pages[id])
-
+    changePage(id)
   }
   return (
     <View style={[actionBarStyle,]}>

@@ -35,23 +35,24 @@ const HomeLayout = () => {
     return null;
   }
   return (
-    <PageController>
     <Search onLayout={onLayoutRootView}>
+      <PageController>
       <Currency>
         <SafeAreaView style={{flex:1, }}>
         <ScrollView horizontal={false} >
           <Text
             style={[text.header, layout.extraMargin.small, layout.extraPadding]}
           >
-            <Link href="/">Strøm info</Link>
+           Strøm info
           </Text>
           <Slot />
         </ScrollView>
         </SafeAreaView>
         <ActionBar/>
       </Currency>
+      </PageController>
+
     </Search>
-    </PageController>
   );
 };
 

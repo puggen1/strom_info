@@ -1,11 +1,9 @@
-import Main from "../components/main";
-import { Link } from "expo-router";
-import SearchSection from "../components/searchSection";
+import { View, Text } from "react-native";
 const Test = () => {
   return (
     <>
       {/** header */}
-      <SearchSection/>
+      <View><Text>Home</Text></View>
       {/** footer */}
       </>
   )

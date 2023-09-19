@@ -16,6 +16,7 @@ const useFetch = (url) => {
       setIsError(false);
       const response = await fetch(url, options);
       const json = await response.json();
+      console.log(json)
       setData(json);
     } catch (error) {
       setIsError(true);
@@ -26,6 +27,9 @@ const useFetch = (url) => {
     }
   };
   useEffect(() => {
+    if(!url){
+      return
+    }
     fetcher(url);
   }, [url]);
   const resetter = () => {

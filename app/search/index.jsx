@@ -1,11 +1,8 @@
-import { View, Text } from 'react-native'
 import React from 'react'
-
+import SearchSection from "../../components/searchSection"
 const Search = () => {
   return (
-    <View>
-      <Text>Search</Text>
-    </View>
+            <SearchSection/>
   )
 }
 

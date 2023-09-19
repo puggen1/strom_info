@@ -23,7 +23,6 @@ const Result = () => {
     useEffect(()=>{
       searchFunction()
     },[date])
-    console.log(Boolean(highest, lowest, average, !isError, !isError))
   return (
    <View style={{marginBottom:30}}>
         {isLoading && <Text>Loading...</Text>}
