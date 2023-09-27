@@ -47,6 +47,13 @@ const text = StyleSheet.create({
       color: colors.white,
     },
   },
+  card:{
+    fontSize:32,
+    color:colors.white,
+    fontFamily:"Roboto-Regular",
+    fontWeight: "medium",
+    textAlign:"center",
+    width:"100%",},
 });
 
 export default text;

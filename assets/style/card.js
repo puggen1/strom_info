@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import colors from "./colors";
 
 const card = StyleSheet.create({
-    width:"90%",
+    width:"100%",
     height:200,
     marginLeft:"auto",
     marginRight:"auto",
@@ -32,11 +32,5 @@ const overlay = StyleSheet.create({
     justifyContent: 'center',
     zIndex:2
 })
-const overlayText = StyleSheet.create({
 
-    color:colors.white,
-    fontWeight: 'bold',
-    textAlign:"center",
-    width:"100%",
-})
-export  {card as cardStyle, image as imageStyle, ColorLayer, overlay, overlayText}
+export  {card as cardStyle, image as imageStyle, ColorLayer, overlay}
