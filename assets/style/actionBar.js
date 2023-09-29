@@ -2,13 +2,13 @@ import { StyleSheet } from "react-native";
 import colors from "./colors"
 const actionBar = StyleSheet.create({
     height:100,
-    backgroundColor:colors.primary,
-    borderTopLeftRadius: 35,
-    borderTopRightRadius: 35,
     flexDirection:"row",
     justifyContent:"space-evenly",
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,   
+    backgroundColor:colors.primary,
+});
 
-})  
 const actionBarItem = StyleSheet.create({
     default:{
         height:75,
@@ -33,6 +33,7 @@ const actionBarItem = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.3,
     shadowRadius: 1, 
+    zIndex:1,
 },
     pressDown:{
         backgroundColor:colors.secondary,
