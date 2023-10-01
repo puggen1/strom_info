@@ -1,22 +1,38 @@
 import { View } from 'react-native'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { PageContext } from '../../context/pageContext'
 import ClickableCard from "../clickableCard/index"
 import {homeContent} from "../../assets/style/homeContent"
 import { useRouter } from 'expo-router'
+import useGetData from '../../hooks/useGetData'
+
 const ArticleSection = () => {
   const {setOpenArticle, setArticleId} = useContext(PageContext)
+  const [articles, setArticles] = useState([])
   const router = useRouter()
   const navigateToArticle = (articleId)=>{
     setOpenArticle(true)
     setArticleId(articleId)
     router.push(`/articles`)
   }
+  const {getAllDocuments} = useGetData("articles")
+
+  useEffect( ()=>{
+    (async()=>{
+      const allArticles = await getAllDocuments()
+    setArticles(allArticles)
+    })()
+  },[])
+ /* useEffect(()=>{
+    
+  },[articles])*/
   return (
     <View style={[homeContent]}>
-       <ClickableCard onClickFunction={()=>{navigateToArticle(1)}} text={"Hvordan bruke appen"} image={"https://images.unsplash.com/photo-1473308822086-710304d7d30c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2531&q=80"}/>
-        <ClickableCard onClickFunction={()=>{navigateToArticle(2)}} text={"Hva er nytt - ver 1.2.1"} image={"https://images.unsplash.com/photo-1560416313-414b33c856a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80"}/>
-        <ClickableCard onClickFunction={()=>{navigateToArticle(3)}} text={"Strøm nyheter"} image={"https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2370&q=80"}/>
+     {articles.length > 0 &&
+     articles.map((article, index)=>{
+      return <ClickableCard key={index} image={article.image} text={article.title} onClickFunction={()=>{navigateToArticle(article.id)}}/>
+     })
+     }
     </View>
   )
 }
