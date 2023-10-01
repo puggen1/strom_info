@@ -20,12 +20,12 @@ const PageController = ({children})=>{
             setCurrentPage(pages[id])
             if(navigation.getCurrentRoute().name === "articles/index"){
                 setOpenArticle(false)
-                router.replace("/")
+                router.push("/")
             }
             else if(openArticle){
-                    router.replace("/articles")
+                    router.push("/articles")
             }else{
-                router.replace("/")
+                router.push("/")
             }
             break
 
@@ -36,16 +36,16 @@ const PageController = ({children})=>{
                 // it is already here and should be reseted to the start of search
                 setUrl()
                 resetter()
-                router.replace("/search")
+                router.push("/search")
             }
             //else it should go to the search result or last state of it...
             else{
-            router.replace("/result")
+            router.push("/result")
             }
             break
         case pages[2].id:
             setCurrentPage(pages[id])
-            router.replace("/settings")
+            router.push("/settings")
             break
         }
     }
