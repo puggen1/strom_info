@@ -7,7 +7,7 @@ import text from '../../assets/style/text'
 import { Image } from 'react-native'
 
 const Articles = () => {
-  //this is easier to do now with the alredy excisting system
+  //this is easier to do now with the already excisting system
     const {articleId} = useContext(PageContext)
   console.log(articleId)
     const {getSingleDocument} = useGetData("articles")

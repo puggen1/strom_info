@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { useContext } from "react";
 import {SearchContext} from "../searchContext";
 import { useNavigation, router } from "expo-router";

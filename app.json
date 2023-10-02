@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "strom_info",
-    "slug": "strom_info",
+    "slug": "strom-info",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "",
@@ -21,7 +21,10 @@
       "adaptiveIcon": {
         "foregroundImage": "",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "googleServicesFile": "./google-services.json",
+      "package":"com.strom_app.strom_app"
+
     },
     "web": {
       "bundler": "metro"
@@ -29,6 +32,15 @@
     "plugins": [
       "expo-router"
     ],
-    "scheme":"strom_info_scheme"
+    "scheme": "strom_info_scheme",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "bfc738a2-bb3e-4425-91d1-67b20ef18a80"
+      }
+    },
+    "owner": "flyinglawnmower"
   }
 }
