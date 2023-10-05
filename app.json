@@ -4,27 +4,27 @@
     "slug": "strom-info",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "",
+    "icon": "./assets/images/logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/images/splashScreen.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#384766"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.flyinglawnmower.strominfo"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#384766"
       },
       "googleServicesFile": "./google-services.json",
-      "package":"com.strom_app.strom_app"
-
+      "package": "com.strom_app.strom_app"
     },
     "web": {
       "bundler": "metro"
@@ -32,7 +32,7 @@
     "plugins": [
       "expo-router"
     ],
-    "scheme": "strom_info_scheme",
+    "scheme": ["strom-info-scheme"],
     "extra": {
       "router": {
         "origin": false

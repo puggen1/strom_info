@@ -5,10 +5,15 @@ import { router } from 'expo-router'
 import useGetData from '../../hooks/useGetData'
 import text from '../../assets/style/text'
 import { Image } from 'react-native'
-
+import {client} from "../../sanity"
 const Articles = () => {
   //this is easier to do now with the already excisting system
     const {articleId} = useContext(PageContext)
+    const testing = async ()=>{
+      let test = await client.fetch('*[_type == "Article"]')
+      console.log(test, "0")
+    }
+    testing()
   console.log(articleId)
     const {getSingleDocument} = useGetData("articles")
   const [article, setArticle] = useState({})
@@ -27,6 +32,7 @@ const Articles = () => {
         <>
       <Text style={[text.header]}>{article.title}</Text>
       <Image source={{uri:article.image}} style={{width:"95%", height:200, marginLeft:"auto", marginRight:"auto", borderRadius:20, opacity:0.9}}/>
+      <Text>{article.content.ingress}</Text>
       <Button title='back' onPress={()=>{router.back()}}/>
       </>
     }

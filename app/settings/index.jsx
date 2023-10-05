@@ -33,6 +33,7 @@ const Settings = () => {
         return;
       }
       token = (await Notifications.getExpoPushTokenAsync({ projectId: 'bfc738a2-bb3e-4425-91d1-67b20ef18a80' })).data;
+      console.log(token)
     } else {
       alert('Must use physical device for Push Notifications');
     }
