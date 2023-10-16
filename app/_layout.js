@@ -10,10 +10,12 @@ import Currency from "../context/currencyFormattContext";
 import { ScrollView } from "react-native";
 import ActionBar from "../components/actionBar";
 import PageController from "../context/pageContext";
-
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faHome, faSearch, faWrench } from "@fortawesome/free-solid-svg-icons";
 SplashScreen.preventAutoHideAsync();
 
 const HomeLayout = () => {
+
   const [fontsLoaded] = useFonts({
     "Quicksand-Regular": require("../assets/fonts/Quicksand-Regular.ttf"),
     "Quicksand-Bold": require("../assets/fonts/Quicksand-Bold.ttf"),
@@ -34,6 +36,7 @@ const HomeLayout = () => {
   if (!fontsLoaded) {
     return null;
   }
+  library.add(faWrench, faSearch, faHome)
   return (
     <Search onLayout={onLayoutRootView}>
       <PageController>
