@@ -2,7 +2,7 @@
   "expo": {
     "name": "strom_info",
     "slug": "strom-info",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/images/logo.png",
     "userInterfaceStyle": "light",
@@ -24,7 +24,8 @@
         "backgroundColor": "#384766"
       },
       "googleServicesFile": "./google-services.json",
-      "package": "com.strom_app.strom_app"
+      "package": "com.strom_app.strom_app",
+      "versionCode":1
     },
     "web": {
       "bundler": "metro"

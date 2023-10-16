@@ -5,6 +5,7 @@ import ClickableCard from "../clickableCard/index"
 import {homeContent} from "../../assets/style/homeContent"
 import { useRouter } from 'expo-router'
 import useGetData from '../../hooks/useGetData'
+import { client } from '../../sanity'
 
 const ArticleSection = () => {
   const {setOpenArticle, setArticleId} = useContext(PageContext)
@@ -15,11 +16,12 @@ const ArticleSection = () => {
     setArticleId(articleId)
     router.push(`/articles`)
   }
-  const {getAllDocuments} = useGetData("articles")
+  const {getAllDocuments} = useGetData()
 
   useEffect( ()=>{
     (async()=>{
       const allArticles = await getAllDocuments()
+      console.log(allArticles)
     setArticles(allArticles)
     })()
   },[])
@@ -30,7 +32,7 @@ const ArticleSection = () => {
     <View style={[homeContent]}>
      {articles.length > 0 &&
      articles.map((article, index)=>{
-      return <ClickableCard key={index} image={article.image} text={article.title} onClickFunction={()=>{navigateToArticle(article.id)}}/>
+      return <ClickableCard key={index} image={article.mainImage} text={article.title} onClickFunction={()=>{navigateToArticle(article.id)}}/>
      })
      }
     </View>
