@@ -1,8 +1,8 @@
-import { Image, View,Text  } from 'react-native'
+import { Image, View,Text, Dimensions  } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import colors from '../../assets/style/colors'
 import text from '../../assets/style/text'
-import layout from '../../assets/style/layout'
+import AutoHeightImage from 'react-native-auto-height-image'
 const SingleArticleSection = ({data}) => {
   if(data.children){
     if(data.style == "h4"){
@@ -18,15 +18,15 @@ const SingleArticleSection = ({data}) => {
   else if(data._type === "iconHeader"){
     
     return(
-      <View style={[{flexDirection:"row", alignContent:"center", alignItems:"center", gap:5}]}>
+      <View style={[{flexDirection:"row", alignContent:"center", alignItems:"center", gap:5, marginTop:15 }]}>
         <FontAwesomeIcon color={colors.primary} icon={`${data.icon.name}`} size={35}/>
-        <Text style={[text.copy]}>{data.title}</Text>
+        <Text style={[text.copy,{color:colors.primary}]}>{data.title}</Text>
       </View>
     )
   }
   else if(data._type === "image"){
-
-    return <Image source={{uri:data.imageUrl}}  style={{width:"100%", objectFit:"scale-down"}}/>
+    let width = Dimensions.get("window").width - 65
+    return <View style={{width:"100%", marginVertical:15}}><AutoHeightImage style={{marginLeft:"auto", marginRight:"auto"}} source={{uri:data.imageUrl}}  width={width} /></View>
 
   }
 }

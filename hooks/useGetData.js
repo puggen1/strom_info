@@ -12,7 +12,6 @@ const useGetData = ()=>{
                 ...,
                 _type == "image" =>{"imageUrl": asset->url}}
     }`)
-    console.log(singleArticle)
         return singleArticle
         }
     return {getAllDocuments, getSingleDocument}

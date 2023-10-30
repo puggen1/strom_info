@@ -16,7 +16,6 @@ const Search = ({children}) => {
         return
       }
       else{
-        console.log(area, date)
       const year = date.getFullYear()
       const month = (date.getMonth() + 1).toLocaleString('no-NO', {minimumIntegerDigits: 2})
       const day = date.getDate().toLocaleString('no-NO', {minimumIntegerDigits: 2})

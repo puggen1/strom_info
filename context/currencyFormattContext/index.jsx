@@ -3,7 +3,7 @@ import colors from "../../assets/style/colors";
 const CurrencyFormatterContext = createContext();
 const currencyFormatter = ({children})=>{
     const radioButtons = [
-        { id: 1, label: "Krone", value: "kr", color:colors.primary, borderColor:colors.primaryc },
+        { id: 1, label: "Kroner", value: "kr", color:colors.primary, borderColor:colors.primary },
         { id: 2, label: "Øre", value: "øre", color:colors.primary, borderColor:colors.primary },
       ];
       const [currencyFormat, setCurrencyFormat] = useState(2);

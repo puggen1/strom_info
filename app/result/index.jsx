@@ -22,12 +22,13 @@ const Result = () => {
     //quick reload when changing the date here
     useEffect(()=>{
       searchFunction()
+      
     },[date])
   return (
    <View style={{marginBottom:30}}>
         {isLoading && <Text>Loading...</Text>}
         {isError && <Text>Error...</Text>}
-        {((Object.keys(data).length === 24) && (highest, lowest, average, !isError, !isLoading, highest?.newPrice) ) &&
+        {((Object.keys(data).length >= 24) && (highest, lowest, average, !isError, !isLoading, highest?.newPrice) ) &&
         <>
         <View style={[layout.centered, {flexDirection:"row"}]}>
         <Text style={[text.subheader]}>Viser data for</Text>

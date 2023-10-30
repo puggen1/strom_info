@@ -9,5 +9,5 @@ export const averageHour = (data) => {
       return acc;
     }
   }, initialValue);
-  return reducedresult / 24;
+  return reducedresult / Object.keys(data).length;
 };
