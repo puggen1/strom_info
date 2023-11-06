@@ -10,6 +10,7 @@ import Currency from "../context/currencyFormattContext";
 import { ScrollView } from "react-native";
 import ActionBar from "../components/actionBar";
 import PageController from "../context/pageContext";
+import NotificationController from "../context/notificationContext";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHome, faSearch, faWrench } from "@fortawesome/free-solid-svg-icons";
 SplashScreen.preventAutoHideAsync();
@@ -39,6 +40,7 @@ const HomeLayout = () => {
   library.add(faWrench, faSearch, faHome)
   return (
     <Search onLayout={onLayoutRootView}>
+      <NotificationController>
       <PageController>
       <Currency>
         <SafeAreaView style={{flex:1,}}>
@@ -54,7 +56,7 @@ const HomeLayout = () => {
         <ActionBar/>
       </Currency>
       </PageController>
-
+      </NotificationController>
     </Search>
   );
 };
