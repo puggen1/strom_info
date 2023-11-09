@@ -5,8 +5,8 @@ const useSendNotification = ()=> {
   Notifications.setNotificationHandler({
     handleNotification: async () => ({
       shouldShowAlert: true,
-      shouldPlaySound: false,
-      shouldSetBadge: false,
+      shouldPlaySound: true,
+      shouldSetBadge: true,
     }),
   });
   const sendNotification =async (title, body,dataContent,trigger)=>{
@@ -19,7 +19,10 @@ const useSendNotification = ()=> {
       trigger: trigger
     })
   }
-return {sendNotification}
+  const cancelAllNotifications =async  ()=>{
+    await Notifications.cancelAllScheduledNotificationsAsync()
+  }
+return {sendNotification, cancelAllNotifications}
 }
 
 

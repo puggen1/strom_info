@@ -16,13 +16,13 @@ const currencyFormatter = ({children})=>{
             lowest: lowest,
           };
         } else {
-          average = average * 100;
+          average = average * 10;
           highest.newPrice
-            ? (highest.newPrice = highest.newPrice * 100)
-            : (highest.NOK_per_kWh = highest.NOK_per_kWh * 100);
+            ? (highest.newPrice = highest.newPrice * 10)
+            : (highest.NOK_per_kWh = highest.NOK_per_kWh * 10);
           lowest.newPrice
-            ? (lowest.newPrice = lowest.newPrice * 100)
-            : (lowest.NOK_per_kWh = lowest.NOK_per_kWh * 100);
+            ? (lowest.newPrice = lowest.newPrice * 10)
+            : (lowest.NOK_per_kWh = lowest.NOK_per_kWh * 10);
           return {
             average: average,
             highest: highest,

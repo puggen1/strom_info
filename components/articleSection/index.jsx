@@ -21,7 +21,6 @@ const ArticleSection = () => {
   useEffect( ()=>{
     (async()=>{
       const allArticles = await getAllDocuments()
-      console.log(allArticles)
     setArticles(allArticles)
     })()
   },[])
