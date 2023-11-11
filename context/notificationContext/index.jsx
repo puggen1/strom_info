@@ -15,7 +15,6 @@ const NotificationController = ({children})=>{
       })()
       .then((existingStatus)=>{
         if(existingStatus == "granted"){
-          console.log("already granted")
           notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
             setNotification(notification);
           });
@@ -24,7 +23,6 @@ const NotificationController = ({children})=>{
           });
         }
         else{
-          console.log("not granted, will try again")
         }
       })
     

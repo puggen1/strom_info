@@ -34,6 +34,27 @@ const text = StyleSheet.create({
       fontWeight: "regular",
       fontFamily: "Roboto-Regular",
     },
+    toggleRadioButton:{
+      color:colors.primary,
+      textAlign: "center",
+      fontSize: 20,
+      fontWeight: "regular",
+      fontFamily: "Roboto-Regular",
+    },
+    toggleRadioButtonPressed:{
+      color:colors.white,
+      textAlign: "center",
+      fontSize: 20,
+      fontWeight: "regular",
+      fontFamily: "Roboto-Regular",
+    },
+    toggleRadioButtonActive:{
+      color: colors.white,
+      textAlign: "center",
+      fontSize: 20,
+      fontWeight: "regular",
+      fontFamily: "Roboto-Regular",
+    }
   },
   infoBox: {
     header: {

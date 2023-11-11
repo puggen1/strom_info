@@ -21,6 +21,16 @@ const buttons = StyleSheet.create({
     borderColor: colors.secondary,
     borderWidth: 2,
   },
+  toggleradio:{
+    backgroundColor:colors.white,
+    borderBlockColor:colors.primary,
+    borderWidth:1,
+    borderRadius:5,
+    minWidth: 75,
+    pressed:{
+      backgroundColor:colors.primary
+    }
+  }
 });
 
 export default buttons;

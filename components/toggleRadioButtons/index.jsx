@@ -1,12 +1,11 @@
 import { View } from 'react-native'
-import React from 'react'
-import Button from '../button'
+import ToggleRadioButton from '../toggleRadioButton'
 const ToggleRadioButtons = ({buttons, changeButton, activeButton}) => {
+
   return (
-    <View>
+    <View style={[{flexDirection:"row", flexWrap:"wrap"}]}>
       {buttons.map((button)=>{
-        console.log(button.id === activeButton)
-        return <Button key={button.id} text={button.text} type={button.id === activeButton ? "main": "outlined"} event={()=>{changeButton(button.id), button.function()}}/>
+        return <ToggleRadioButton key={button.id} text={button.text} type={button.id === activeButton ? "active": "default"} event={()=>{changeButton(button.id), button.function()}}/>
       })}
     </View>
   )

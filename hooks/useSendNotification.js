@@ -10,7 +10,8 @@ const useSendNotification = ()=> {
     }),
   });
   const sendNotification =async (title, body,dataContent,trigger)=>{
-    await Notifications.scheduleNotificationAsync({
+    console.log(title, body, dataContent, trigger)
+    let status = await Notifications.scheduleNotificationAsync({
       content:{
         title:title,
          body:body,
@@ -18,6 +19,7 @@ const useSendNotification = ()=> {
       },
       trigger: trigger
     })
+    console.log(status)
   }
   const cancelAllNotifications =async  ()=>{
     await Notifications.cancelAllScheduledNotificationsAsync()
