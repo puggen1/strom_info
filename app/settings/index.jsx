@@ -1,18 +1,15 @@
 import { View, Text, Button } from 'react-native'
-import { useContext, useState } from 'react'
-import useSendNotification from '../../hooks/useSendNotification'
+import { useContext } from 'react'
+import useNotification from '../../hooks/useNotification'
 import { NotificationContext } from '../../context/notificationContext'
-import ToggleRadioButtons from '../../components/toggleRadioButtons'
 import text from '../../assets/style/text'
 import colors from '../../assets/style/colors'
 import layout from '../../assets/style/layout'
-import { updatedPrices } from '../../utils/notifications/updatedPrices'
+import { notificationButtonList } from '../../utils/notifications/notifications'
+import NotificationList from '../../components/NotificationList'
 const Settings = () => {  
-  const [activeButton, setActiveButton] = useState(0)
-  let time = updatedPrices()
-  const notifyWhenUpdated = [{id:0, text:"nei", function:()=>{console.log("nei")}},{id:1, text:"ja", function:()=>{sendNotification(title="testing",body="dette er en test", dataContent={}, trigger={ hour:time.getHours(), minute:time.getMinutes(), repeats:true})}}]
   const {registerForPushNotificationsAsync, setExpoPushToken} = useContext(NotificationContext)
-  const {sendNotification, cancelAllNotifications} = useSendNotification()
+  const {getAllNotifications} = useNotification()
   return (
     <View>
       <Text style={[text.header, {marginBottom:10}]}>Innstillinger</Text>
@@ -20,7 +17,11 @@ const Settings = () => {
       {/** notification when prices are updated */}
       <View style={[layout.extraPadding]}>
         <Text style={[text.copy, {color:colors.primary}]}>Når strømpriser er oppdatert</Text>
-      <ToggleRadioButtons buttons={notifyWhenUpdated} changeButton={setActiveButton} activeButton={activeButton}/>
+        {
+          Object.entries(notificationButtonList).map(([name,list],i)=>{
+           return ( <NotificationList key={i} list={list} name={name}/>)
+          })
+        }
       </View>
       {/**
       <Button title='Activate Notifications' onPress={()=>{registerForPushNotificationsAsync().then((token)=>{setExpoPushToken(token)})}}/>

@@ -1,7 +1,6 @@
 import { View } from 'react-native'
 import ToggleRadioButton from '../toggleRadioButton'
 const ToggleRadioButtons = ({buttons, changeButton, activeButton}) => {
-
   return (
     <View style={[{flexDirection:"row", flexWrap:"wrap"}]}>
       {buttons.map((button)=>{
