@@ -2,17 +2,20 @@ import { Link, Slot } from "expo-router";
 import text from "../assets/style/text";
 import layout from "../assets/style/layout";
 import { useCallback } from "react";
-import { Text, SafeAreaView } from "react-native";
+import { Text, SafeAreaView, View, StatusBar } from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Search from "../context/searchContext";
 import Currency from "../context/currencyFormattContext";
 import { ScrollView } from "react-native";
 import ActionBar from "../components/actionBar";
+import { headerSection } from "../assets/style/actionBar";
 import PageController from "../context/pageContext";
 import NotificationController from "../context/notificationContext";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHome, faSearch, faWrench } from "@fortawesome/free-solid-svg-icons";
+import colors from "../assets/style/colors";
+import { GeneralStatusBarStyle } from "../assets/style/statusBar";
 SplashScreen.preventAutoHideAsync();
 
 const HomeLayout = () => {
@@ -43,13 +46,19 @@ const HomeLayout = () => {
       <NotificationController>
       <PageController>
       <Currency>
-        <SafeAreaView style={{flex:1,}}>
+      <View style={[GeneralStatusBarStyle, { color:colors.primary }]}>
+        <StatusBar translucent backgroundColor={colors.primary} />
+        </View>
+        <SafeAreaView style={{flex:1}}>
+        
         <ScrollView horizontal={false} style={{}}>
+          <View style={[headerSection]}>
           <Text
-            style={[text.header, layout.extraMargin.small, layout.extraPadding]}
+            style={[text.header, layout.extraMargin.small, layout.extraPadding, {color:colors.white}]}
           >
            Strøm info
           </Text>
+          </View>
           <Slot />
         </ScrollView>
         </SafeAreaView>

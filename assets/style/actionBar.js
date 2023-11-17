@@ -75,4 +75,8 @@ const actionBarItem = StyleSheet.create({
 const actionBarIcons = StyleSheet.create({
 
 })
-export  {actionBar, actionBarItem, actionBarIcons}
+const headerSection = StyleSheet.create({
+    backgroundColor: colors.primary,
+    marginBottom: 10,
+})
+export  {actionBar, actionBarItem, actionBarIcons, headerSection}
