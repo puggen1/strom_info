@@ -1,4 +1,4 @@
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, Image } from 'react-native'
 import { useContext } from 'react'
 import useNotification from '../../hooks/useNotification'
 import { NotificationContext } from '../../context/notificationContext'
@@ -22,6 +22,7 @@ const Settings = () => {
            return ( <NotificationList key={i} list={list} name={name}/>)
           })
         }
+
       </View>
       {/**
       <Button title='Activate Notifications' onPress={()=>{registerForPushNotificationsAsync().then((token)=>{setExpoPushToken(token)})}}/>
