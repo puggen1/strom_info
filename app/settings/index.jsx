@@ -1,34 +1,38 @@
-import { View, Text, Switch } from 'react-native'
-import { useContext, useLayoutEffect, useState } from 'react'
-import useNotification from '../../hooks/useNotification'
-import { NotificationContext } from '../../context/notificationContext'
-import text from '../../assets/style/text'
-import colors from '../../assets/style/colors'
-import layout from '../../assets/style/layout'
-import { notificationButtonList } from '../../utils/notifications/notifications'
-import NotificationList from '../../components/NotificationList'
-import * as Notifications from "expo-notifications"
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import { View, Text, Switch } from 'react-native';
+import { useContext, useEffect, useState } from 'react';
+import useNotification from '../../hooks/useNotification';
+import { NotificationContext } from '../../context/notificationContext';
+import text from '../../assets/style/text';
+import colors from '../../assets/style/colors';
+import layout from '../../assets/style/layout';
+import { notificationButtonList } from '../../utils/notifications/notifications';
+import NotificationList from '../../components/NotificationList';
+import * as Notifications from "expo-notifications";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const Settings = () => {  
   const [permissionStatus, setPermissionStatus] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   /**
    * before loading it will get the permission status so it can show the switch in the right posistion
    */
-  useLayoutEffect(()=>{
+  useEffect(()=>{
     (async ()=> {
-      await loadAsyncStorage()
+      await loadAsyncStorage();
     })()
   },[])
   //funker
   const loadAsyncStorage = async ()=> {
     try{
-      const status = await AsyncStorage.getItem("notificationStatus")
+      const status = await AsyncStorage.getItem("notificationStatus");
       if(status !== null){
-        setPermissionStatus(JSON.parse(status))
+        setPermissionStatus(JSON.parse(status));
       }
     }
     catch(error){
-      console.log(error)
+      console.log(error);
+    }
+    finally{
+      setIsLoading(false)
     }
   }
   const saveNotificationStatus = async (status) =>{
@@ -51,10 +55,14 @@ const Settings = () => {
     }
     else{
       await Notifications.cancelAllScheduledNotificationsAsync();
+      //update state here.....
+      
    }
   }
   return (
-    <View>
+    <>
+    {isLoading && <View><Text>Laster</Text></View>}
+    {!isLoading && <View>
       <Text style={[text.header, {marginBottom:10}]}>Innstillinger</Text>
       <View style={[layout.extraPadding, {flexDirection:"row"}]}>
         <Text style={[text.subheader]}>Tillatt varsler</Text>
@@ -72,12 +80,8 @@ const Settings = () => {
           })
         }
       </View>
-      {/**
-      <Button title='Activate Notifications' onPress={()=>{registerForPushNotificationsAsync().then((token)=>{setExpoPushToken(token)})}}/>
-      <Button title='testNotifications' onPress={()=>{sendNotification("test", "test", {title:"test"}, {seconds:60, repeats:true})}}/>
-      <Button title='Turn off scheduled notifications' onPress={()=>{cancelAllNotifications()}}/>
-  */}
-    </View>
+    </View>}
+    </>
   )
 }
 
