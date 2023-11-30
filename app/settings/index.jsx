@@ -1,5 +1,5 @@
-import { View, Text, Button, Image, Switch } from 'react-native'
-import { useContext, useState } from 'react'
+import { View, Text, Switch } from 'react-native'
+import { useContext, useLayoutEffect, useState } from 'react'
 import useNotification from '../../hooks/useNotification'
 import { NotificationContext } from '../../context/notificationContext'
 import text from '../../assets/style/text'
@@ -7,11 +7,52 @@ import colors from '../../assets/style/colors'
 import layout from '../../assets/style/layout'
 import { notificationButtonList } from '../../utils/notifications/notifications'
 import NotificationList from '../../components/NotificationList'
-
+import * as Notifications from "expo-notifications"
+import AsyncStorage from '@react-native-async-storage/async-storage'
 const Settings = () => {  
+  const [permissionStatus, setPermissionStatus] = useState(false)
+  /**
+   * before loading it will get the permission status so it can show the switch in the right posistion
+   */
+  useLayoutEffect(()=>{
+    (async ()=> {
+      await loadAsyncStorage()
+    })()
+  },[])
+  //funker
+  const loadAsyncStorage = async ()=> {
+    try{
+      const status = await AsyncStorage.getItem("notificationStatus")
+      if(status !== null){
+        setPermissionStatus(JSON.parse(status))
+      }
+    }
+    catch(error){
+      console.log(error)
+    }
+  }
+  const saveNotificationStatus = async (status) =>{
+    try{
+    await AsyncStorage.setItem("notificationStatus", JSON.stringify(status))
+  }catch(error){
+    console.log(error)
+  }
+  }
   const {registerForPushNotificationsAsync, setExpoPushToken} = useContext(NotificationContext)
   const {getAllNotifications} = useNotification()
-  const [notificationStatus, setNotificationStatus] = useState(false)
+  //this works, but lives its own life, if will cancel all or enable itself, but need logic to update all buttons and to update itself when enabling a notification again
+  const togglePermissions = async ()=>{
+    let newPermissionStatus = !permissionStatus
+    setPermissionStatus(newPermissionStatus)
+     saveNotificationStatus(newPermissionStatus)
+
+    if(newPermissionStatus){
+      await Notifications.requestPermissionsAsync()
+    }
+    else{
+      await Notifications.cancelAllScheduledNotificationsAsync();
+   }
+  }
   return (
     <View>
       <Text style={[text.header, {marginBottom:10}]}>Innstillinger</Text>
@@ -19,8 +60,8 @@ const Settings = () => {
         <Text style={[text.subheader]}>Tillatt varsler</Text>
         <Switch
         trackColor={{true:colors.primary}}
-        thumbColor={notificationStatus ? colors.primary : '#f4f3f4'}
-        ios_backgroundColor="#3e3e3e" value={notificationStatus} onValueChange={()=>{setNotificationStatus(!notificationStatus)}}/>
+        /*thumbColor={permissionStatus ? colors.primary : '#f4f3f4'}*/
+        ios_backgroundColor="#3e3e3e" value={permissionStatus} onValueChange={()=>{togglePermissions()}}/>
       </View>
       <Text style={[text.subheader, layout.extraMargin.horizontal]}>Varsle meg ...</Text>
       {/** notification when prices are updated */}
