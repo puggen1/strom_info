@@ -1,11 +1,17 @@
 import { createContext, useState, useRef, useEffect } from "react";
 import * as Notifications from "expo-notifications"
 import * as Device from "expo-device"
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const NotificationContext = createContext()
 
 const NotificationController = ({children})=>{
     const [expoPushToken, setExpoPushToken] = useState("")
     const [notification, setNotification] = useState(false);
+    const {notificationStatus, setNotificationStatus} = useState(false)
+    const [permissionStatus, setPermissionStatus] = useState(false)
+
+    const [isLoading, setIsLoading] = useState(true)
     const notificationListener = useRef();
     const responseListener = useRef();
     useEffect(() => {
@@ -59,8 +65,38 @@ const NotificationController = ({children})=>{
       }
       return token;
     }
+
+//notification status
+useEffect(()=>{
+  (async ()=> {
+    await loadAsyncStorage();
+  })()
+},[])
+//funker
+const loadAsyncStorage = async ()=> {
+  try{
+    const status = await AsyncStorage.getItem("notificationStatus");
+    if(status !== null){
+      setPermissionStatus(JSON.parse(status));
+    }
+  }
+  catch(error){
+    console.log(error);
+  }
+  finally{
+    setIsLoading(false)
+  }
+}
+const saveNotificationStatus = async (status) =>{
+  try{
+  await AsyncStorage.setItem("notificationStatus", JSON.stringify(status))
+}catch(error){
+  console.log(error)
+}
+}
+
         return (
-        <NotificationContext.Provider value={{expoPushToken, notification, registerForPushNotificationsAsync, setExpoPushToken}}>
+        <NotificationContext.Provider value={{expoPushToken, notification, registerForPushNotificationsAsync, setExpoPushToken, notificationStatus, saveNotificationStatus, isLoading, permissionStatus, setPermissionStatus}}>
             {children}
         </NotificationContext.Provider>
     )
