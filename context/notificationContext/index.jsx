@@ -76,6 +76,7 @@ useEffect(()=>{
 const loadAsyncStorage = async ()=> {
   try{
     const status = await AsyncStorage.getItem("notificationStatus");
+    console.log(status)
     if(status !== null){
       setPermissionStatus(JSON.parse(status));
     }
@@ -94,7 +95,6 @@ const saveNotificationStatus = async (status) =>{
   console.log(error)
 }
 }
-
         return (
         <NotificationContext.Provider value={{expoPushToken, notification, registerForPushNotificationsAsync, setExpoPushToken, notificationStatus, saveNotificationStatus, isLoading, permissionStatus, setPermissionStatus}}>
             {children}

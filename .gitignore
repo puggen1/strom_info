@@ -35,3 +35,6 @@ yarn-error.*
 *.tsbuildinfo
 
 .env*
+
+google-services.json
+strom-info-907509f3f6dc.json
