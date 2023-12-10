@@ -50,11 +50,10 @@ const HomeLayout = () => {
         <StatusBar translucent backgroundColor={colors.primary} />
         </View>
         <SafeAreaView style={{flex:1}}>
-        
         <ScrollView horizontal={false} style={{}}>
           <View style={[headerSection]}>
           <Text
-            style={[text.header, layout.extraMargin.small, layout.extraPadding, {color:colors.white}]}
+            style={[text.header, layout.extraMargin.small, {color:colors.white}]}
           >
            Strøm info
           </Text>

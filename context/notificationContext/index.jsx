@@ -76,7 +76,6 @@ useEffect(()=>{
 const loadAsyncStorage = async ()=> {
   try{
     const status = await AsyncStorage.getItem("notificationStatus");
-    console.log(status)
     if(status !== null){
       setPermissionStatus(JSON.parse(status));
     }

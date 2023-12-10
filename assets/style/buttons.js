@@ -30,6 +30,9 @@ const buttons = StyleSheet.create({
     pressed:{
       backgroundColor:colors.primary
     }
+  },
+  transparent:{
+    backgroundColor:"transparent"
   }
 });
 

@@ -36,22 +36,20 @@ const Settings = () => {
     {isLoading && <View><Text>Laster</Text></View>}
     {!isLoading && <View>
       <Text style={[text.header, {marginBottom:10}]}>Innstillinger</Text>
-      <View style={[layout.extraPadding, {flexDirection:"row"}]}>
-        <Text style={[text.subheader]}>Tillatt varsler</Text>
+      <View style={[layout.extraMargin.horizontal, {flexDirection:"row", gap:3, marginTop:10, marginLeft:"auto"}]}>
+        <Text style={[text.subheader,{alignSelf:"center"}]}>Tillatt varsler</Text>
         <Switch
+        style={{alignSelf:"center"}}
         trackColor={{true:colors.primary}}
-        /*thumbColor={permissionStatus ? colors.primary : '#f4f3f4'}*/
+        thumbColor={'#f4f3f4'}
         ios_backgroundColor="#3e3e3e" value={permissionStatus} onValueChange={()=>{togglePermissions()}}/>
       </View>
-      <Text style={[text.subheader, layout.extraMargin.horizontal]}>Varsle meg ...</Text>
       {/** notification when prices are updated */}
-      <View style={[layout.extraPadding]}>
         {
           Object.entries(allButtons).map(([name,list],i)=>{
            return ( <NotificationList key={i} list={list} name={name}/>)
           })
         }
-      </View>
     </View>}
     </>
   )
