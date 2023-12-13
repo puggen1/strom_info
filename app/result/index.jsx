@@ -32,7 +32,7 @@ const Result = () => {
         <>
         <View style={[layout.centered, {flexDirection:"row"}]}>
         <Text style={[text.subheader]}>Viser data for</Text>
-        <DatePicker value={date} onChangeFunction={handleDate}/>
+        <DatePicker value={date} onChangeFunction={handleDate} resultPage={true}/>
         </View>
         <View>
           <RadioButtonsGroup radioButtons={radioButtons} onPress={setCurrencyFormat} selectedId={currencyFormat} layout='row' containerStyle={[layout.centered, layout.extraMargin.vertical]}/>
