@@ -17,6 +17,7 @@ const areaSelect = StyleSheet.create({
     textAlign: "center",
     color: colors.primary,
     paddingTop: 5,
+    marginBottom:10
   },
   placeholder: {
     color: colors.secondary,

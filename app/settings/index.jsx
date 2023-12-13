@@ -2,12 +2,16 @@ import { View, Text, Switch } from 'react-native';
 import { useContext, useEffect, useState } from 'react';
 import useNotification from '../../hooks/useNotification';
 import { NotificationContext } from '../../context/notificationContext';
+import {SearchContext} from '../../context/searchContext';
 import text from '../../assets/style/text';
 import colors from '../../assets/style/colors';
 import layout from '../../assets/style/layout';
 import { notificationButtonList } from '../../utils/notifications/notifications';
 import NotificationList from '../../components/NotificationList';
 import * as Notifications from "expo-notifications";
+import articleSection from '../../assets/style/articleSection';
+import AreaSelect from '../../components/areaSelect';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const Settings = () => {  
   //putting the notificationButtonList inside a state for rendering
   const [allButtons, setAllButtons] = useState(notificationButtonList)
@@ -31,6 +35,19 @@ const Settings = () => {
 
   
   }
+  // preffered area
+  const [area, setArea] = useState()
+  const {loadAsyncStatus} = useContext(SearchContext)
+  useEffect(()=>{
+    loadAsyncStatus(setArea)
+  },[])
+  const updatePreferredArea = async(area)=>{
+    console.log(area)
+    try{
+    await AsyncStorage.setItem("preferredArea", area)
+    }
+    catch(error){console.log(error)}
+  }
   return (
     <>
     {isLoading && <View><Text>Laster</Text></View>}
@@ -50,6 +67,10 @@ const Settings = () => {
            return ( <NotificationList key={i} list={list} name={name}/>)
           })
         }
+        <View style={articleSection}>
+          <Text>Ditt standard område:</Text>
+          <AreaSelect settingsPage={true} value={area} setValue={setArea} preferredFunction={updatePreferredArea}/>
+        </View>
     </View>}
     </>
   )
