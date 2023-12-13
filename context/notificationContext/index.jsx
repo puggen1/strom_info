@@ -31,11 +31,12 @@ const NotificationController = ({children})=>{
         else{
         }
       })
-    
+
         return () => {
           Notifications.removeNotificationSubscription(notificationListener.current);
           Notifications.removeNotificationSubscription(responseListener.current);
         };
+
       }, [expoPushToken]);
       
       const registerForPushNotificationsAsync = async ()=>{

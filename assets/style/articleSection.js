@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 const articleSection = StyleSheet.create({
-    backgroundColor: "#eee",
+    backgroundColor: "#f6f6f6",
     borderRadius: 20,
     width: "95%",
     maxWidth: "100%",

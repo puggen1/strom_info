@@ -36,7 +36,7 @@ const Settings = () => {
     {isLoading && <View><Text>Laster</Text></View>}
     {!isLoading && <View>
       <Text style={[text.header, {marginBottom:10}]}>Innstillinger</Text>
-      <View style={[layout.extraMargin.horizontal, {flexDirection:"row", gap:3, marginTop:10, marginLeft:"auto"}]}>
+      <View style={[layout.extraMargin.horizontal, {flexDirection:"row", gap:3, marginTop:10, marginLeft:"auto", marginBottom:7}]}>
         <Text style={[text.subheader,{alignSelf:"center"}]}>Tillatt varsler</Text>
         <Switch
         style={{alignSelf:"center"}}

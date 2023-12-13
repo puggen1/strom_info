@@ -31,7 +31,7 @@ const NotificationList = ({list, name}) => {
    {isLoading && <View><Text>Laster</Text></View>}
     {!isLoading &&
     <View style={[articleSection, layout.extraMargin.horizontal, {marginTop:0}]}>
-    <Text style={[text.copy, {color:colors.primary}]}>{list.title}</Text>
+    <Text style={[text.copy, {color:colors.primary, marginLeft:0}]}>{list.title}</Text>
     <ToggleRadioButtons transparent={true} buttons={list.options} changeButton={setActiveButton} activeButton={activeButton}/>
     </View>
 }

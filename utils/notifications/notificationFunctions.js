@@ -9,4 +9,5 @@ const dailyPriceUpdate = ()=>{
     return {title, body, dataContent, trigger}
 }
 
+
 export {dailyPriceUpdate}
