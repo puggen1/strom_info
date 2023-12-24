@@ -8,11 +8,11 @@ const InfoBox = ({header, subheader, icon, additionalText=""}) => {
   const {currencyFormat, radioButtons} = useContext(CurrencyFormatterContext)
   return (
     <View style={[layout.extraMargin.vertical]}>
+          <Text style={[text.subheader,layout.centered]}>{additionalText}</Text>
     <View style={[infoBoxStyles.main,]}>
       <Text  style={text.infoBox.header}>{header} {icon ? icon : ""}</Text>
       <Text style={text.infoBox.subheader}>{subheader} {radioButtons[currencyFormat - 1].label} pr kWt</Text>
     </View>
-    <Text style={[text.subheader,layout.centered]}>{additionalText}</Text>
     </View>
   )
 }

@@ -2,7 +2,7 @@ import { Link, Slot } from "expo-router";
 import text from "../assets/style/text";
 import layout from "../assets/style/layout";
 import { useCallback } from "react";
-import { Text, SafeAreaView, View, StatusBar } from "react-native";
+import { Text, SafeAreaView, View } from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Search from "../context/searchContext";
@@ -16,6 +16,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHome, faSearch, faWrench } from "@fortawesome/free-solid-svg-icons";
 import colors from "../assets/style/colors";
 import { GeneralStatusBarStyle } from "../assets/style/statusBar";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
 SplashScreen.preventAutoHideAsync();
 
 const HomeLayout = () => {
@@ -40,17 +42,19 @@ const HomeLayout = () => {
   if (!fontsLoaded) {
     return null;
   }
+  
   library.add(faWrench, faSearch, faHome)
   return (
     <Search onLayout={onLayoutRootView}>
       <NotificationController>
       <PageController>
       <Currency>
+        <SafeAreaProvider style={[{backgroundColor:colors.primary}]}>
       <View style={[GeneralStatusBarStyle, { color:colors.primary }]}>
         <StatusBar translucent backgroundColor={colors.primary} />
         </View>
         <SafeAreaView style={{flex:1}}>
-        <ScrollView horizontal={false} style={{}}>
+        <ScrollView horizontal={false} style={{ backgroundColor:"#fff"}}>
           <View style={[headerSection]}>
           <Text
             style={[text.header, layout.extraMargin.small, {color:colors.white}]}
@@ -62,6 +66,7 @@ const HomeLayout = () => {
         </ScrollView>
         </SafeAreaView>
         <ActionBar/>
+        </SafeAreaProvider>
       </Currency>
       </PageController>
       </NotificationController>

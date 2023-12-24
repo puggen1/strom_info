@@ -38,9 +38,9 @@ const Result = () => {
           <RadioButtonsGroup radioButtons={radioButtons} onPress={setCurrencyFormat} selectedId={currencyFormat} layout='row' containerStyle={[layout.centered, layout.extraMargin.vertical]}/>
         </View>
         <View style={[{width:"65%", marginLeft:"auto", marginRight:"auto"}]}>
-        <InfoBox header={"Høyeste"} subheader={numberFormater(highest.newPrice ? highest.newPrice : highest.NOK_per_kWh, currencyFormat)} additionalText={timePeriod(highest.time_start, highest.time_end)} icon={<FontAwesomeIcon size={25} color={colors.danger}  icon={ faChevronUp } />}/>
-        <InfoBox header={"Snitt"} subheader={average} />
-        <InfoBox header={"Laveste"} subheader={numberFormater(lowest.newPrice ? lowest.newPrice : lowest.NOK_per_kWh, currencyFormat)} additionalText={timePeriod(lowest.time_start, lowest.time_end)} icon={<FontAwesomeIcon size={25} color={colors.success}  icon={ faChevronDown } />}/>
+                  <InfoBox header={"Laveste"} subheader={numberFormater(lowest.newPrice ? lowest.newPrice : lowest.NOK_per_kWh, currencyFormat)} additionalText={timePeriod(lowest.time_start, lowest.time_end)} icon={<FontAwesomeIcon size={25} color={colors.success}  icon={ faChevronDown } />}/>
+                  <InfoBox header={"Snitt"} subheader={average} />
+                  <InfoBox header={"Høyeste"} subheader={numberFormater(highest.newPrice ? highest.newPrice : highest.NOK_per_kWh, currencyFormat)} additionalText={timePeriod(highest.time_start, highest.time_end)} icon={<FontAwesomeIcon size={25} color={colors.danger}  icon={ faChevronUp } />}/>
         </View>
         </>
         }

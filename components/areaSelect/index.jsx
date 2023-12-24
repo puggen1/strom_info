@@ -11,7 +11,7 @@ const AreaSelect = ({ value, setValue, settingsPage, preferredFunction}) => {
         placeholder='Område'
         options={areas}
         selectedValue={value}
-        onValueChange={(value)=>{setValue(value),preferredFunction(value)}}
+        onValueChange={(value)=>{setValue(value),preferredFunction && preferredFunction(value)}}
         dropdownStyle={areaselectStyling.dropdown}
         labelStyle={[text.copy, areaselectStyling.label]}
         placeholderStyle={[text.subheader, areaselectStyling.placeholder]}
