@@ -9,16 +9,14 @@ const AreaSelect = ({ value, setValue, settingsPage, preferredFunction}) => {
   
   return (
 
-    <View style={areaselectStyling.outerSelect}>
+    <View style={settingsPage ? areaselectStyling.outerSelectSettings : areaselectStyling.outerSelect}>
         <DropdownSelect label={ settingsPage ? 'Ditt standard område:' : 'Velg Område'}
         placeholder='Område'
         options={areas}
         selectedValue={value}
         onValueChange={(value)=>{setValue(value),preferredFunction && preferredFunction(value)}}
         dropdownStyle={areaselectStyling.dropdown}
-        labelStyle={[text.copy, settingsPage ? {textAlign:"left",   color: colors.primary,
-        paddingTop: 5,
-        marginBottom:10}:areaselectStyling.label]}
+        labelStyle={[text.copy, settingsPage ? areaselectStyling.labelSettings:areaselectStyling.label]}
         placeholderStyle={[text.subheader, areaselectStyling.placeholder]}
         dropdownIconStyle={areaselectStyling.icon}
         selectedItemStyle={[text.subheader, areaselectStyling.placeholder]}

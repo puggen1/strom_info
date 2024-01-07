@@ -7,6 +7,10 @@ const areaSelect = StyleSheet.create({
     marginTop: 30,
     margin: 10,
   },
+  outerSelectSettings: {
+    marginTop: 0,
+    margin: 0,
+  },
   dropdown: {
     borderColor: colors.secondary,
     backgroundColor: colors.white,
@@ -17,7 +21,13 @@ const areaSelect = StyleSheet.create({
     textAlign: "center",
     color: colors.primary,
     paddingTop: 5,
-    marginBottom:10
+    marginBottom: 10,
+  },
+  labelSettings: {
+    textAlign: "left",
+    color: colors.primary,
+    paddingTop: 5,
+    marginBottom: 10,
   },
   placeholder: {
     color: colors.secondary,
