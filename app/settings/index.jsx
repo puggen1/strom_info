@@ -53,22 +53,27 @@ const Settings = () => {
     {isLoading && <View><Text>Laster</Text></View>}
     {!isLoading && <View>
       <Text style={[text.header, {marginBottom:10}]}>Innstillinger</Text>
-      <View style={[layout.extraMargin.horizontal, {flexDirection:"row", gap:3, marginTop:10, marginLeft:"auto", marginBottom:7}]}>
-        <Text style={[text.subheader,{alignSelf:"center"}]}>Tillatt varsler</Text>
+      <View style={[articleSection, layout.extraMargin.horizontal, {marginTop:0}]}>
+        <Text style={[text.subheader, {textAlign:"center", marginBottom:15}]}>Varslinger</Text>
+        <View style={{flexDirection:"row", gap:10, marginBottom:10}}>
+      <Text style={[text.copy,{alignSelf:"center", color:colors.primary}]}>Tillatt varsler</Text>
         <Switch
         style={{alignSelf:"center"}}
         trackColor={{true:colors.primary}}
         thumbColor={'#f4f3f4'}
         ios_backgroundColor="#3e3e3e" value={permissionStatus} onValueChange={()=>{togglePermissions()}}/>
-      </View>
+        </View>
       {/** notification when prices are updated */}
         {
+        
           Object.entries(allButtons).map(([name,list],i)=>{
            return ( <NotificationList key={i} list={list} name={name}/>)
           })
+          
         }
+        </View>
         <View style={articleSection}>
-          <Text>Ditt standard område:</Text>
+          <Text style={[text.subheader,{textAlign:"center", color:colors.primary, marginBottom:15}]}>Område</Text>
           <AreaSelect settingsPage={true} value={area} setValue={setArea} preferredFunction={updatePreferredArea}/>
         </View>
     </View>}
