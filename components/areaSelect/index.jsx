@@ -16,6 +16,7 @@ const AreaSelect = ({ value, setValue, settingsPage, preferredFunction}) => {
         selectedValue={value}
         onValueChange={(value)=>{setValue(value),preferredFunction && preferredFunction(value)}}
         dropdownStyle={areaselectStyling.dropdown}
+        /*dropdownContainerStyle={{}}*/
         labelStyle={[text.copy, settingsPage ? areaselectStyling.labelSettings:areaselectStyling.label]}
         placeholderStyle={[text.subheader, areaselectStyling.placeholder]}
         dropdownIconStyle={areaselectStyling.icon}

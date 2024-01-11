@@ -10,11 +10,12 @@ const areaSelect = StyleSheet.create({
   outerSelectSettings: {
     marginTop: 0,
     margin: 0,
+    padding:0,
   },
   dropdown: {
     borderColor: colors.secondary,
     backgroundColor: colors.white,
-    borderWidth: 3,
+    borderWidth: 2,
     borderRadius: 40,
   },
   label: {
@@ -35,6 +36,7 @@ const areaSelect = StyleSheet.create({
   },
   icon: {
     borderColor: colors.secondary,
+    top:"100%"
   },
   checkBox: {
     checkboxSize: 25,

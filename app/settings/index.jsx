@@ -42,9 +42,13 @@ const Settings = () => {
     loadAsyncStatus(setArea)
   },[])
   const updatePreferredArea = async(area)=>{
-    console.log(area)
     try{
-    await AsyncStorage.setItem("preferredArea", area)
+      if(!Boolean(area)){
+      await AsyncStorage.removeItem("preferredArea")
+      }
+      else{
+        await AsyncStorage.setItem("preferredArea", area)
+      }
     }
     catch(error){console.log(error)}
   }
