@@ -12,8 +12,6 @@ import ActionBar from "../components/actionBar";
 import { headerSection } from "../assets/style/actionBar";
 import PageController from "../context/pageContext";
 import NotificationController from "../context/notificationContext";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHome, faSearch, faWrench } from "@fortawesome/free-solid-svg-icons";
 import colors from "../assets/style/colors";
 import { GeneralStatusBarStyle } from "../assets/style/statusBar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -43,9 +41,10 @@ const HomeLayout = () => {
     return null;
   }
   
-  library.add(faWrench, faSearch, faHome)
+  
   return (
-    <Search onLayout={onLayoutRootView}>
+    <View onLayout={onLayoutRootView}>
+    <Search >
       <NotificationController>
       <PageController>
       <Currency>
@@ -71,6 +70,7 @@ const HomeLayout = () => {
       </PageController>
       </NotificationController>
     </Search>
+    </View>
   );
 };
 
