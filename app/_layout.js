@@ -16,6 +16,8 @@ import colors from "../assets/style/colors";
 import { GeneralStatusBarStyle } from "../assets/style/statusBar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faHome, faSearch, faWrench } from "@fortawesome/free-solid-svg-icons";
 SplashScreen.preventAutoHideAsync();
 
 const HomeLayout = () => {
@@ -40,16 +42,16 @@ const HomeLayout = () => {
   if (!fontsLoaded) {
     return null;
   }
-  
+  library.add(faWrench, faSearch, faHome)
+
   
   return (
-    <View onLayout={onLayoutRootView}>
     <Search >
       <NotificationController>
       <PageController>
       <Currency>
         <SafeAreaProvider style={[{backgroundColor:colors.primary}]}>
-      <View style={[GeneralStatusBarStyle, { color:colors.primary }]}>
+      <View onLayout={onLayoutRootView} style={[GeneralStatusBarStyle, { color:colors.primary }]}>
         <StatusBar translucent backgroundColor={colors.primary} />
         </View>
         <SafeAreaView style={{flex:1}}>
@@ -70,7 +72,6 @@ const HomeLayout = () => {
       </PageController>
       </NotificationController>
     </Search>
-    </View>
   );
 };
 

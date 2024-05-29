@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import { useContext, useEffect } from 'react'
 import { SearchContext } from '../../context/searchContext'
 import useCalculateStatistic from '../../hooks/useCalculateStatistic'
@@ -6,7 +6,7 @@ import InfoBox from '../../components/infoBox'
 import { timePeriod } from '../../utils/timePeriod/timePeriod'
 import numberFormater from '../../utils/numberFormater'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faArrowRight, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import colors from '../../assets/style/colors'
 import DatePicker from '../../components/datePicker'
 import layout from '../../assets/style/layout'
@@ -14,7 +14,9 @@ import text from '../../assets/style/text'
 import useHandleDatePicker from '../../hooks/useHandleDatePicker'
 import RadioButtonsGroup from 'react-native-radio-buttons-group'
 import { CurrencyFormatterContext } from '../../context/currencyFormattContext'
+import DateSelector from '../../components/dateSelector'
 const Result = () => {
+  
     const {date, data, isLoading, isError, searchFunction, resetter} = useContext(SearchContext)
     const {currencyFormat, setCurrencyFormat, radioButtons} = useContext(CurrencyFormatterContext)
     const {highest,lowest,average} = useCalculateStatistic(data)
@@ -37,6 +39,7 @@ const Result = () => {
         <View>
           <RadioButtonsGroup radioButtons={radioButtons} onPress={setCurrencyFormat} selectedId={currencyFormat} layout='row' containerStyle={[layout.centered, layout.extraMargin.vertical]}/>
         </View>
+        <DateSelector/>
         <View style={[{width:"65%", marginLeft:"auto", marginRight:"auto"}]}>
                   <InfoBox header={"Laveste"} subheader={numberFormater(lowest.newPrice ? lowest.newPrice : lowest.NOK_per_kWh, currencyFormat)} additionalText={timePeriod(lowest.time_start, lowest.time_end)} icon={<FontAwesomeIcon size={25} color={colors.success}  icon={ faChevronDown } />}/>
                   <InfoBox header={"Snitt"} subheader={average} />
