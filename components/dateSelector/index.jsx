@@ -19,7 +19,6 @@ export default function DateSelector() {
         }
         setDate(newDate)
     }
-    console.log(date)
   return (
     <View style={[{display:"flex", flexDirection:"row",justifyContent:"space-between", width:"100%", paddingHorizontal:10, maxWidth:"100%", boxsizing:"border-box", }]}>
         <View style={[{display:"flex", gap:5, alignItems:"center"}]}>
