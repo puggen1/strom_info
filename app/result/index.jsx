@@ -15,6 +15,7 @@ import useHandleDatePicker from '../../hooks/useHandleDatePicker'
 import RadioButtonsGroup from 'react-native-radio-buttons-group'
 import { CurrencyFormatterContext } from '../../context/currencyFormattContext'
 import DateSelector from '../../components/dateSelector'
+import { ActivityIndicator } from 'react-native'
 const Result = () => {
   
     const {date, data, isLoading, isError, searchFunction, resetter} = useContext(SearchContext)
@@ -28,9 +29,9 @@ const Result = () => {
     },[date])
   return (
    <View style={{marginBottom:30}}>
-        {isLoading && <Text>Loading...</Text>}
+        {isLoading && <ActivityIndicator size={"large"} color={colors.primary}/>}
         {isError && <Text>Error...</Text>}
-        {((Object.keys(data).length >= 24) && (highest, lowest, average, !isError, !isLoading, highest?.newPrice) ) &&
+        {((Object.keys(data).length >= 24 && !isLoading) && (highest, lowest, average, !isError, !isLoading, highest?.newPrice) ) &&
         <>
         <View style={[layout.centered, {flexDirection:"row"}]}>
         <Text style={[text.subheader]}>Viser data for</Text>
