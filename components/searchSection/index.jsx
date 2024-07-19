@@ -12,7 +12,7 @@ export default function SearchSection() {
     <View>
           <DatePicker value={date} onChangeFunction={handleDate} searchPage={true} />
           <AreaSelect value={area} setValue={setArea}/>
-          <Button type="main" text={"Sjekk Prisen"} event={searchFunction}/>
+          <Button label={"sjekk prisen"} type="main" text={"Sjekk Prisen"} event={searchFunction}/>
     </View>
   )
 }

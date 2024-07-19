@@ -9,7 +9,7 @@ const ToggleRadioButton = ({text, event, type, transparent}) => {
     }
 
   return (
-    <Pressable onPress={event} onPressIn={togglePressed} on onPressOut={togglePressed} style={[buttons.global, buttons.toggleradio, type === "active" && buttons.toggleradio.pressed, pressed && buttons.toggleradio.pressed, ((transparent && !pressed) && type !== "active") && buttons.transparent]}>
+    <Pressable onPress={event} accessibilityLabel={text} onPressIn={togglePressed} on onPressOut={togglePressed} style={[buttons.global, buttons.toggleradio, type === "active" && buttons.toggleradio.pressed, pressed && buttons.toggleradio.pressed, ((transparent && !pressed) && type !== "active") && buttons.transparent]}>
       <Text style={[textStyle.button.toggleRadioButton, pressed && textStyle.button.toggleRadioButtonPressed, type === "active" && textStyle.button.toggleRadioButtonActive]}>{text}</Text>
     </Pressable>
   )

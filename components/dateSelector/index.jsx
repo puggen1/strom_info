@@ -23,7 +23,7 @@ export default function DateSelector() {
     <View style={[{display:"flex", flexDirection:"row",justifyContent:"space-between", width:"100%", paddingHorizontal:10, maxWidth:"100%", boxsizing:"border-box", }]}>
         <View style={[{display:"flex", gap:5, alignItems:"center"}]}>
             <Text style={[text.copy]}>Forrige</Text>
-        <SingleButton onClickFunction={()=>{changeDate("prev")}} icon={faArrowLeft}/>
+        <SingleButton label={"forrige dag"} onClickFunction={()=>{changeDate("prev")}} icon={faArrowLeft}/>
         </View>
         <View style={[{display:"flex", gap:5, alignItems:"center"}]}>
         { 
@@ -31,7 +31,7 @@ export default function DateSelector() {
         (exDate.getDate() === new Date(date).getDate() && (new Date(date).getHours() > 14 || (new Date(date).getHours() === 14 && new Date(date).getMinutes() >= 30))) ?
         <>
           <Text style={[text.copy]}>Neste</Text>
-          <SingleButton onClickFunction={()=>{changeDate("next")}} icon={faArrowRight}/>
+          <SingleButton label={"neste dag"} onClickFunction={()=>{changeDate("next")}} icon={faArrowRight}/>
        </> : null
         }
         </View>

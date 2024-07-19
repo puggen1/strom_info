@@ -43,7 +43,7 @@ const Articles = () => {
         return <SingleArticleSection data={section} key={section._key}/>
       })}
       </View>
-      <Button text={"tilbake"} type='main' event={()=>{router.back()}}/>
+      <Button label={"tilbake"} text={"tilbake"} type='main' event={()=>{router.back()}}/>
         </>
     }
     </View>
