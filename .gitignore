@@ -33,3 +33,7 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+.env*
+
+strom-info-907509f3f6dc.json
