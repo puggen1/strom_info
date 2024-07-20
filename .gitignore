@@ -37,3 +37,4 @@ yarn-error.*
 .env*
 
 strom-info-907509f3f6dc.json
+google-services.json
