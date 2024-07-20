@@ -31,7 +31,7 @@ const Result = () => {
    <View style={{marginBottom:30}}>
         {isLoading && <ActivityIndicator size={"large"} color={colors.primary}/>}
         {isError && <Text>Error...</Text>}
-        {((Object.keys(data).length >= 24 && !isLoading) && (highest, lowest, average, !isError, !isLoading, highest?.newPrice) ) &&
+        {((Object.keys(data).length >= 24) && (highest, lowest, average, !isError, !isLoading, highest?.newPrice) ) &&
         <>
         <View style={[layout.centered, {flexDirection:"row"}]}>
         <Text style={[text.subheader]}>Viser data for</Text>
